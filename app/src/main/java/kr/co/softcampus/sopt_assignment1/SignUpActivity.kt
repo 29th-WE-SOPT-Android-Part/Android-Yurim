@@ -1,11 +1,9 @@
 package kr.co.softcampus.sopt_assignment1
 
-import android.app.PendingIntent
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import kr.co.softcampus.sopt_assignment1.databinding.ActivitySignInBinding
+import androidx.appcompat.app.AppCompatActivity
 import kr.co.softcampus.sopt_assignment1.databinding.ActivitySignUpBinding
 
 class SignUpActivity : AppCompatActivity() {
@@ -19,6 +17,10 @@ class SignUpActivity : AppCompatActivity() {
 
         binding.btnReg.setOnClickListener {
             if(binding.etId.length()!=0 && binding.etPw.length()!=0 && binding.etName.length()!=0) {
+                val nextIntent = Intent(this,SignInActivity::class.java)
+                nextIntent.putExtra("id", binding.etId.text.toString())
+                nextIntent.putExtra("pw", binding.etPw.text.toString())
+                setResult(RESULT_OK, nextIntent)
                 finish()
             }
             else{
