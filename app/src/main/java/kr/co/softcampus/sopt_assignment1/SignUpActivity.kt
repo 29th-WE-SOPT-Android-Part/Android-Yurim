@@ -15,16 +15,18 @@ class SignUpActivity : AppCompatActivity() {
 
         binding = ActivitySignUpBinding.inflate(layoutInflater)
 
+
+
         binding.btnReg.setOnClickListener {
-            if(binding.etId.length()!=0 && binding.etPw.length()!=0 && binding.etName.length()!=0) {
-                val nextIntent = Intent(this,SignInActivity::class.java)
-                nextIntent.putExtra("id", binding.etId.text.toString())
-                nextIntent.putExtra("pw", binding.etPw.text.toString())
-                setResult(RESULT_OK, nextIntent)
-                finish()
+            if(binding.etId.text.isNullOrBlank() || binding.etPw.text.isNullOrBlank() || binding.etName.text.isNullOrBlank()) {
+                Toast.makeText(this, "입력되지 않은 정보가 있습니다", Toast.LENGTH_SHORT).show()
             }
             else{
-                Toast.makeText(this, "입력되지 않은 정보가 있습니다", Toast.LENGTH_SHORT).show()
+                val Intent_SignIn = Intent(this,SignInActivity::class.java)
+                Intent_SignIn.putExtra("id", binding.etId.text.toString())
+                Intent_SignIn.putExtra("pw", binding.etPw.text.toString())
+                setResult(RESULT_OK, Intent_SignIn)
+                finish()
             }
         }
 

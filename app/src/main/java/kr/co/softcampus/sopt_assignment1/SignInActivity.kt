@@ -16,8 +16,27 @@ class SignInActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivitySignInBinding.inflate(layoutInflater)
 
+        Login()
+        Register()
+
+        setContentView(binding.root)
+    }
+
+    private fun Login() {
+        binding.btnLogin.setOnClickListener {
+            if (binding.etId.text.isNullOrBlank() || binding.etPw.text.isNullOrBlank()) {
+                Toast.makeText(this, "로그인 실패", Toast.LENGTH_SHORT).show()
+            } else {
+                val intent_Home = Intent(this, HomeActivity::class.java)
+                Toast.makeText(this, "${binding.etId.text}" + "님 환영합니다", Toast.LENGTH_SHORT).show()
+                startActivity(intent_Home)
+            }
+        }
+    }
+
+    private fun Register() {
         val startForResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()){
-            result->
+                result->
             if(result.resultCode == Activity.RESULT_OK){
                 val id = result.data?.getStringExtra("id")
                 val pw = result.data?.getStringExtra("pw")
@@ -25,21 +44,9 @@ class SignInActivity : AppCompatActivity() {
                 binding.etPw.setText(pw)
             }
         }
-
-        val intent = Intent(this, HomeActivity::class.java)
-        binding.btnLogin.setOnClickListener {
-            if(binding.etId.length()!=0 && binding.etPw.length()!=0) {
-                Toast.makeText(this, binding.etId.text.toString()+"님 환영합니다", Toast.LENGTH_SHORT).show()
-                startActivity(intent)
-            }
-            else{Toast.makeText(this, "로그인 실패", Toast.LENGTH_SHORT).show()}
+        binding.btnReg.setOnClickListener {
+            val intent_SignUp = Intent(this, SignUpActivity::class.java)
+            startForResult.launch(intent_SignUp)
         }
-
-        val intent2 = Intent(this,SignUpActivity::class.java)
-        binding.btnReg.setOnClickListener{
-            startForResult.launch(intent2)
-        }
-
-        setContentView(binding.root)
     }
 }

@@ -13,11 +13,14 @@ class HomeActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         binding = ActivityHomeBinding.inflate(layoutInflater)
-        binding.git.setOnClickListener {
-            val url = "https://github.com/ChoiYuLim"
-            val webPage: Uri = Uri.parse(url)
+        gitClick()
+        setContentView(binding.root)
+    }
+
+    private fun gitClick(){
+        binding.ibGit.setOnClickListener {
+            val webPage = Uri.parse("https://github.com/ChoiYuLim")
             val intent = Intent(Intent.ACTION_VIEW, webPage)
 
             // 해당 intent를 성공적으로 수행할 수 있는지 체크
@@ -27,6 +30,7 @@ class HomeActivity : AppCompatActivity() {
                 Log.d("ImplicitIntents", "Can't handle this!")
             }
         }
-        setContentView(binding.root)
     }
+
+
 }
