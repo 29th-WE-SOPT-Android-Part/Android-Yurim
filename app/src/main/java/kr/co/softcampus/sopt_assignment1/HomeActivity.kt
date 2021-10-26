@@ -5,12 +5,12 @@ import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import kr.co.softcampus.sopt_assignment1.databinding.ActivityHomeBinding
 
 class HomeActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityHomeBinding
-    private var position = FOLLOWER_POSITION
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,35 +39,24 @@ class HomeActivity : AppCompatActivity() {
         val repositoryFragment = RepositoryFragment()
 
         supportFragmentManager.beginTransaction().add(R.id.container_List, followerFragment).commit()
+        //click event 발생할 경우
+        btnRepository(repositoryFragment)
+        btnFollower(followerFragment)
+    }
 
+    private fun btnRepository(repositoryFragment: Fragment) {
         binding.btnRepository.setOnClickListener {
             val transaction = supportFragmentManager.beginTransaction()
-
-            when (position){
-                FOLLOWER_POSITION -> {
-                    transaction.replace(R.id.container_List,repositoryFragment)
-                    position = REPOSITORY_POSITION
-                }
-            }
+            transaction.replace(R.id.container_List, repositoryFragment)
             transaction.commit()
         }
+    }
 
+    private fun btnFollower(followerFragment: Fragment){
         binding.btnFollower.setOnClickListener{
             val transaction = supportFragmentManager.beginTransaction()
-
-            when (position){
-                REPOSITORY_POSITION -> {
-                    transaction.replace(R.id.container_List, followerFragment)
-                    position = FOLLOWER_POSITION
-                }
-            }
+            transaction.replace(R.id.container_List, followerFragment)
             transaction.commit()
         }
     }
-
-    companion object {
-        const val FOLLOWER_POSITION = 1
-        const val REPOSITORY_POSITION = 2
-    }
-
 }
