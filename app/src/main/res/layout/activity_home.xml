@@ -6,192 +6,22 @@
     android:layout_height="match_parent"
     tools:context=".HomeActivity">
 
-    <TextView
-        android:id="@+id/tv_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="SOPTHub"
-        android:textColor="#FF3399"
-        android:textSize="30dp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
-    <ScrollView
-        android:id="@+id/sv_info"
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/vp_home"
         android:layout_width="match_parent"
-        android:layout_height="280dp"
-        android:layout_marginTop="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_title">
+        android:layout_height="match_parent"/>
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp">
-
-            <ImageView
-                android:id="@+id/iv_photo"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:src="@drawable/lim"
-                app:layout_constraintDimensionRatio="1"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintWidth_default="percent"
-                app:layout_constraintWidth_percent="0.35" />
-
-
-            <ImageButton
-                android:id="@+id/ib_git"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/git"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/iv_photo"
-                tools:ignore="SpeakableTextPresentCheck" />
-
-
-            <TextView
-                android:id="@+id/tv_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="이름"
-                android:textSize="20sp"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="@+id/tv_age"
-                app:layout_constraintTop_toBottomOf="@id/ib_git" />
-
-
-            <TextView
-                android:id="@+id/tv_name2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="60dp"
-                android:text="최유림"
-                android:textSize="20sp"
-                android:textColor="@color/black"
-                app:layout_constraintStart_toEndOf="@+id/tv_name"
-                app:layout_constraintTop_toTopOf="@+id/tv_name" />
-
-            <TextView
-                android:id="@+id/tv_age"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="나이"
-                android:textSize="20sp"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="@+id/tv_mbti"
-                app:layout_constraintTop_toBottomOf="@+id/tv_name" />
-
-            <TextView
-                android:id="@+id/tv_age2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="60dp"
-                android:text="24"
-                android:textSize="20sp"
-                android:textColor="@color/black"
-                app:layout_constraintStart_toEndOf="@+id/tv_age"
-                app:layout_constraintTop_toTopOf="@+id/tv_age" />
-
-            <TextView
-                android:id="@+id/tv_mbti"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="MBTI"
-                android:textSize="20sp"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="@+id/tv_intro"
-                app:layout_constraintTop_toBottomOf="@+id/tv_age" />
-
-            <TextView
-                android:id="@+id/tv_mbti2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="60dp"
-                android:text="ESFP"
-                android:textSize="20sp"
-                android:textColor="@color/black"
-                app:layout_constraintStart_toEndOf="@+id/tv_mbti"
-                app:layout_constraintTop_toTopOf="@+id/tv_mbti" />
-
-            <TextView
-                android:id="@+id/tv_intro"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="간단한 소개"
-                android:textSize="20sp"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="@+id/tv_intro2"
-                app:layout_constraintTop_toBottomOf="@+id/tv_mbti" />
-
-            <TextView
-                android:id="@+id/tv_intro2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="안녕하세요 SOPT 29기 \n안드로이드 YB입니다\n잘 부탁드립니다~♥\n\n안녕하세요 SOPT 29기 \n안드로이드 YB입니다\n잘 부탁드립니다~♥\n\n안녕하세요 SOPT 29기 \n안드로이드 YB입니다\n잘 부탁드립니다~♥"
-                android:textSize="20sp"
-                android:textColor="@color/black"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_intro" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
-
-    <Button
-        android:id="@+id/btn_follower"
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="10dp"
-        android:text="팔로워\n목록"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@id/btn_repository"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sv_info" />
-
-    <Button
-        android:id="@+id/btn_repository"
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="60dp"
-        android:text="레포지토리 목록"
-        android:backgroundTint="#5BCCDA"
-        app:layout_constraintBottom_toBottomOf="@+id/btn_follower"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintLeft_toRightOf="@id/btn_follower"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/btn_follower" />
-
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/container_List"
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bnv"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="3dp"
-        android:layout_marginBottom="5dp"
+        android:layout_height="wrap_content"
+        app:itemIconTint="@color/selector_bottom_navi"
+        app:itemRippleColor="#FA79B0"
+        app:itemTextColor="@color/selector_bottom_navi"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_follower"
-        tools:layout="@layout/fragment_follower"/>
-
+        app:layout_constraintEnd_toEndOf="@+id/vp_home"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/menu" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,7 +3,9 @@ package kr.co.softcampus.sopt_assignment1
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import kr.co.softcampus.sopt_assignment1.databinding.FollowerListBinding
+import kotlin.coroutines.coroutineContext
 
 class FollowerAdapter : RecyclerView.Adapter<FollowerAdapter.FollowerViewHolder>() { //<>안에 Adapter가 데이터를 전달할 ViewHolder 클래스 작성
 
@@ -34,6 +36,10 @@ class FollowerAdapter : RecyclerView.Adapter<FollowerAdapter.FollowerViewHolder>
         fun onBind(data : FollowerData) {
             binding.tvName.text = data.name
             binding.tvIntro.text = data.introduction
+            Glide.with(itemView.context)
+                .load(R.drawable.one)
+                .circleCrop()
+                .into(binding.ivPhoto)
         }
     }
 }

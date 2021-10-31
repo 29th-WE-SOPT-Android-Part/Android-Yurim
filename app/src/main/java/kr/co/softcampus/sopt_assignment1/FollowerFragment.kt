@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.bumptech.glide.Glide
 import kr.co.softcampus.sopt_assignment1.databinding.FragmentFollowerBinding
 
 class FollowerFragment : Fragment() {
@@ -31,7 +32,6 @@ class FollowerFragment : Fragment() {
         binding.rvFollower.adapter = followerAdapter
         followerAdapter.followerList.addAll(
             listOf(
-                FollowerData("최유림", "안드로이드"),
                 FollowerData("박정훈", "안드로이드"),
                 FollowerData("이준호", "IOS"),
                 FollowerData("김인우", "기획"),
