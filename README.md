@@ -157,3 +157,5 @@
 ### 고찰
 - 명시적 인텐트와 암시적 인텐트의 차이점을 알게 되었고 registerForActivityResult를 사용하는 법을 배웠음<br/>
 - 처음에 Level2 과제 중 데이터를 넘겨줄 때 SingInActivity와 SignUpActivity 둘 중 어디에서 registerForActivityResult를 써야하는건지, launch를 어떤 버튼을 눌렀을 때 해줘야하는 건지 등이 헷갈렸지만 검색을 통해 사용하는 법을 배움
+- Ctrl+Alt+O : 사용하지 않는 import 제거해주는 단축키
+- Ctrl+Alt+L : 코드를 Reformat해주는 
