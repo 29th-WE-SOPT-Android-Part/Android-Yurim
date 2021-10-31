@@ -10,22 +10,22 @@
 1. HomeFragment.kt
 
         private fun initImage(){
-            Glide.with(this)
-                .load(R.drawable.img_github)
-                .circleCrop()
-                .into(binding.ivPhoto)
+        Glide.with(this)
+            .load(R.drawable.img_github)
+            .circleCrop()
+            .into(binding.ivPhoto)
         }
 
 - 코드에서 Glide 이용해서 동그란 이미지 만들기
   
 
         private fun initAdapter(){
-            val fragmentList = listOf(TabFollowingFragment(), TabFollowerFragment())
+        val fragmentList = listOf(TabFollowingFragment(), TabFollowerFragment())
 
-            tabViewPagerAdapter = TabViewPagerAdapter(this)
-            tabViewPagerAdapter.fragments.addAll(fragmentList)
+        tabViewPagerAdapter = TabViewPagerAdapter(this)
+        tabViewPagerAdapter.fragments.addAll(fragmentList)
 
-            binding.vpFollow.adapter = tabViewPagerAdapter
+        binding.vpFollow.adapter = tabViewPagerAdapter
         }
         
 
@@ -33,11 +33,11 @@
 
 
         private fun initTabLayout(){
-            val tabLabel = listOf("팔로잉","팔로워")
+        val tabLabel = listOf("팔로잉","팔로워")
 
-            TabLayoutMediator(binding.tlHome, binding.vpFollow) {tab, position ->
-                tab.text = tabLabel[position]
-            }.attach()
+        TabLayoutMediator(binding.tlHome, binding.vpFollow) {tab, position ->
+          tab.text = tabLabel[position]
+        }.attach()
 
         }
 
@@ -48,12 +48,12 @@
 2. HomeViewPagerAdapter.kt
 
         class HomeViewPagerAdapter (fragmentActivity: FragmentActivity) :
-    	    FragmentStateAdapter(fragmentActivity){
-    	    val fragments = mutableListOf<Fragment>()
+    	FragmentStateAdapter(fragmentActivity){
+    	val fragments = mutableListOf<Fragment>()
 
- 	        override fun getItemCount(): Int = fragments.size
+ 	override fun getItemCount(): Int = fragments.size
 
-    	    override fun createFragment(position: Int): Fragment = fragments[position]
+    	override fun createFragment(position: Int): Fragment = fragments[position]
          }
         
         
@@ -63,12 +63,12 @@
 3. TabViewPagerAdapter.kt
 
         class TabViewPagerAdapter(fragment: Fragment) :
-    	    FragmentStateAdapter(fragment){
-        	    val fragments = mutableListOf<Fragment>()
+    	FragmentStateAdapter(fragment){
+        	val fragments = mutableListOf<Fragment>()
 
-    	    override fun createFragment(position: Int): Fragment = fragments[position]
+    	override fun createFragment(position: Int): Fragment = fragments[position]
 
-    	    override fun getItemCount(): Int = fragments.size
+    	override fun getItemCount(): Int = fragments.size
          }
 	
 
@@ -80,18 +80,18 @@
 
         <?xml version="1.0" encoding="utf-8"?>
         <selector xmlns:android="http://schemas.android.com/apk/res/android">
-	        <item android:state_selected="false">
-		        <shape android:shape="rectangle">
-			        <corners android:radius="5dp"/>
-			        <solid android:color="#F2F2F2"/>
-		        </shape>
-    	    </item>
-    	    <item android:state_selected="true">
+	<item android:state_selected="false">
+		<shape android:shape="rectangle">
+			<corners android:radius="5dp"/>
+			<solid android:color="#F2F2F2"/>
+		</shape>
+    	</item>
+    	<item android:state_selected="true">
         		<shape android:shape="rectangle">
             			<corners android:radius="5dp"/>
             			<solid android:color="#FAB24C"/>
         		</shape>
-    	    </item>
+    	</item>
          </selector>
 
 - isSelected= true인 경우와 isSelected= false인 경우 두 가지에 적용되는 스타일이 다를 경우 selector를 이용한다.
