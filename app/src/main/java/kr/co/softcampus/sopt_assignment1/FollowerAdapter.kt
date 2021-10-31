@@ -1,7 +1,9 @@
 package kr.co.softcampus.sopt_assignment1
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import kr.co.softcampus.sopt_assignment1.databinding.FollowerListBinding
 
@@ -24,6 +26,15 @@ class FollowerAdapter : RecyclerView.Adapter<FollowerAdapter.FollowerViewHolder>
     /*재활용되는 뷰를 호출하여 실행되는 함수, ViewHolder와 position의 데이터를 결합시키는 역할*/
     override fun onBindViewHolder(holder: FollowerViewHolder, position: Int) {
         holder.onBind(followerList[position]) //ViewHolder의 onBind함수를 호출해서 데이터를 넘겨줌
+
+        holder.itemView.setOnClickListener{
+            //아이템을 클릭했을 때 실행되는 코드
+            val detail_intent = Intent(holder.itemView?.context, DetailActivity::class.java)
+            detail_intent.putExtra("img", followerList[position].img)
+            detail_intent.putExtra("name", followerList[position].name)
+            detail_intent.putExtra("detail", followerList[position].introduction)
+            ContextCompat.startActivity(holder.itemView.context, detail_intent,null)
+        }
     }
 
     override fun getItemCount(): Int = followerList.size
@@ -32,6 +43,7 @@ class FollowerAdapter : RecyclerView.Adapter<FollowerAdapter.FollowerViewHolder>
     class FollowerViewHolder(private val binding: FollowerListBinding)
         : RecyclerView.ViewHolder(binding.root) { //RecyclerView.ViewHolder 클래스 상속
         fun onBind(data : FollowerData) {
+            binding.ivPhoto.setImageResource(data.img)
             binding.tvName.text = data.name
             binding.tvIntro.text = data.introduction
         }
