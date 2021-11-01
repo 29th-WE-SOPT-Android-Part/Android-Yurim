@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="11dp"
         android:fontFamily="@font/noto_sans_kr_bold"
-        android:text="GitHub"
+        android:text="@string/github"
         android:textColor="@color/main_pinkpower"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="@+id/iv_photo"

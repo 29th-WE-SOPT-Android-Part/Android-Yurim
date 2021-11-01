@@ -19,7 +19,7 @@ class SignUpActivity : AppCompatActivity() {
 
         binding.btnReg.setOnClickListener {
             if (binding.etId.text.isNullOrBlank() || binding.etPw.text.isNullOrBlank() || binding.etName.text.isNullOrBlank()) {
-                Toast.makeText(this, "입력되지 않은 정보가 있습니다", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, R.string.blank, Toast.LENGTH_SHORT).show()
             } else {
                 val Intent_SignIn = Intent(this, SignInActivity::class.java)
                 Intent_SignIn.putExtra("id", binding.etId.text.toString())

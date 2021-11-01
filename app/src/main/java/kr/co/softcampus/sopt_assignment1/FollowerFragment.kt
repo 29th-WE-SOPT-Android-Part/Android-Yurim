@@ -36,7 +36,9 @@ class FollowerFragment : Fragment() {
                 FollowerData("이준호", "IOS"),
                 FollowerData("김인우", "기획"),
                 FollowerData("박민우", "안드로이드"),
-                FollowerData("김우영", "서버")
+                FollowerData("김우영", "서버"),
+                FollowerData("문다빈", "안팟장"),
+                FollowerData("한지우","디자인")
             )
         )
         followerAdapter.notifyDataSetChanged()

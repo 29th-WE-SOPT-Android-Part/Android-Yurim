@@ -24,14 +24,22 @@ class SignInActivity : AppCompatActivity() {
 
     private fun Login() {
         binding.btnLogin.setOnClickListener {
-            if (binding.etId.text.isNullOrBlank() || binding.etPw.text.isNullOrBlank()) {
-                Toast.makeText(this, "로그인 실패", Toast.LENGTH_SHORT).show()
+            if (checkInputText()) {
+                Toast.makeText(this, R.string.fail_login, Toast.LENGTH_SHORT).show()
             } else {
-                val intent_Home = Intent(this, HomeActivity::class.java)
-                Toast.makeText(this, "${binding.etId.text}" + "님 환영합니다", Toast.LENGTH_SHORT).show()
-                startActivity(intent_Home)
+                successLogin()
             }
         }
+    }
+
+    private fun checkInputText(): Boolean{
+        return binding.etId.text.isNullOrBlank() || binding.etPw.text.isNullOrBlank()
+    }
+
+    private fun successLogin(){
+        val intent_Home = Intent(this, HomeActivity::class.java)
+        Toast.makeText(this, "${binding.etId.text}" + "님 환영합니다", Toast.LENGTH_SHORT).show()
+        startActivity(intent_Home)
     }
 
     private fun Register() {
