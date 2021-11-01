@@ -5,9 +5,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import kr.co.softcampus.sopt_assignment1.databinding.FollowerListBinding
-import kotlin.coroutines.coroutineContext
 
-class FollowerAdapter : RecyclerView.Adapter<FollowerAdapter.FollowerViewHolder>() { //<>안에 Adapter가 데이터를 전달할 ViewHolder 클래스 작성
+class FollowerAdapter :
+    RecyclerView.Adapter<FollowerAdapter.FollowerViewHolder>() { //<>안에 Adapter가 데이터를 전달할 ViewHolder 클래스 작성
 
     val followerList = mutableListOf<FollowerData>()
 
@@ -18,7 +18,7 @@ class FollowerAdapter : RecyclerView.Adapter<FollowerAdapter.FollowerViewHolder>
     ): FollowerViewHolder { //ViewHolder 객체 반환
         val binding = FollowerListBinding.inflate(
             LayoutInflater.from(parent.context), //LayoutInflater.from을 통해 LayoutInflater를 생성
-            parent,false
+            parent, false
         )
         return FollowerViewHolder(binding)
     }
@@ -31,9 +31,9 @@ class FollowerAdapter : RecyclerView.Adapter<FollowerAdapter.FollowerViewHolder>
     override fun getItemCount(): Int = followerList.size
 
     /* ViewHolder가 가진 View에 Adapter로부터 전달받은 데이터를 붙여주는 함수, onBindViewHolder 호출 시 실행됨 */
-    class FollowerViewHolder(private val binding: FollowerListBinding)
-        : RecyclerView.ViewHolder(binding.root) { //RecyclerView.ViewHolder 클래스 상속
-        fun onBind(data : FollowerData) {
+    class FollowerViewHolder(private val binding: FollowerListBinding) :
+        RecyclerView.ViewHolder(binding.root) { //RecyclerView.ViewHolder 클래스 상속
+        fun onBind(data: FollowerData) {
             binding.tvName.text = data.name
             binding.tvIntro.text = data.introduction
             Glide.with(itemView.context)

@@ -10,7 +10,7 @@ import kr.co.softcampus.sopt_assignment1.databinding.ActivitySignInBinding
 
 class SignInActivity : AppCompatActivity() {
 
-    private lateinit var binding : ActivitySignInBinding
+    private lateinit var binding: ActivitySignInBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,15 +35,15 @@ class SignInActivity : AppCompatActivity() {
     }
 
     private fun Register() {
-        val startForResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()){
-                result->
-            if(result.resultCode == Activity.RESULT_OK){
-                val id = result.data?.getStringExtra("id")
-                val pw = result.data?.getStringExtra("pw")
-                binding.etId.setText(id)
-                binding.etPw.setText(pw)
+        val startForResult =
+            registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+                if (result.resultCode == Activity.RESULT_OK) {
+                    val id = result.data?.getStringExtra("id")
+                    val pw = result.data?.getStringExtra("pw")
+                    binding.etId.setText(id)
+                    binding.etPw.setText(pw)
+                }
             }
-        }
         binding.btnReg.setOnClickListener {
             val intent_SignUp = Intent(this, SignUpActivity::class.java)
             startForResult.launch(intent_SignUp)

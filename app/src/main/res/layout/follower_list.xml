@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="22dp"
         android:fontFamily="@font/noto_sans_kr_bold"
-        android:textColor="#333333"
+        android:textColor="@color/gray1"
         android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/iv_photo"
         app:layout_constraintTop_toTopOf="@+id/iv_photo"
@@ -35,7 +35,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/noto_sans_kr_regular"
-        android:textColor="#333333"
+        android:textColor="@color/gray1"
         android:textFontWeight="400"
         app:layout_constraintBottom_toBottomOf="@+id/iv_photo"
         app:layout_constraintStart_toStartOf="@+id/tv_name"
@@ -46,9 +46,9 @@
         android:layout_width="wrap_content"
         android:layout_height="1dp"
         android:background="#DDE2E5"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

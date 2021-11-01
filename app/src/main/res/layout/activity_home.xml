@@ -9,14 +9,14 @@
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/vp_home"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bnv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:itemIconTint="@color/selector_bottom_navi"
-        app:itemRippleColor="#FA79B0"
+        app:itemRippleColor="@color/pink"
         app:itemTextColor="@color/selector_bottom_navi"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/vp_home"
