@@ -22,7 +22,7 @@ class HomeActivity : AppCompatActivity() {
 
     //ViewPager2와 Adapter 연동
     private fun initAdapter() {
-        val fragmentList = listOf(ProfileFragment(), HomeFragment(), CameraFragment())
+        val fragmentList = listOf(ProfileFragment(), HomeFragment(), ImageFragment())
 
         homeViewPagerAdapter = HomeViewPagerAdapter(this)
         homeViewPagerAdapter.fragments.addAll(fragmentList)
