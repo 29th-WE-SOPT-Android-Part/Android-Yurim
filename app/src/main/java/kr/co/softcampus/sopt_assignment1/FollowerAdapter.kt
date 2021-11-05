@@ -37,7 +37,7 @@ class FollowerAdapter :
             binding.tvName.text = data.name
             binding.tvIntro.text = data.introduction
             Glide.with(itemView.context)
-                .load(R.drawable.one)
+                .load(data.url)
                 .circleCrop()
                 .into(binding.ivPhoto)
         }
