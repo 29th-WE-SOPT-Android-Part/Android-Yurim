@@ -29,7 +29,7 @@ class RepositoryAdapter : RecyclerView.Adapter<RepositoryAdapter.RepositoryViewH
 
     class RepositoryViewHolder(private val binding: RepositoryListBinding) //뷰홀더는 포장지! 여기서 onBind해준다
         : RecyclerView.ViewHolder(binding.root) {
-        fun onBind(data : RepositoryData) {
+        fun onBind(data: RepositoryData) {
             binding.tvTitle.text = data.title
             binding.tvSubtitle.text = data.subtitle
         }

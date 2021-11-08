@@ -6,54 +6,43 @@
     android:layout_height="match_parent"
     tools:context=".SignInActivity">
 
-    <TextView
-        android:id="@+id/tv_title"
+    <ImageView
+        android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="SOPTHub"
-        android:textColor="#FF3399"
-        android:textStyle="bold"
-        android:layout_marginTop="25dp"
-        android:textSize="30dp"
+        android:layout_marginTop="66dp"
+        android:src="@drawable/img_github"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/login"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="로그인"
-        android:textStyle="bold"
-        android:textSize="18dp"
-        android:textColor="@color/black"
-        android:layout_marginTop="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_title" />
-
-    <TextView
         android:id="@+id/id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="아이디"
-        android:textStyle="bold"
-        android:textColor="@color/black"
-        android:textSize="18dp"
-        android:layout_marginTop="30dp"
         android:layout_marginStart="20dp"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/noto_sans_kr_bold"
+        android:text="@string/githubid"
+        android:textColor="@color/gray1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <EditText
         android:id="@+id/et_id"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="6dp"
         android:layout_marginEnd="20dp"
-        android:hint="아이디를 입력해주세요"
+        android:background="@drawable/selector_tv"
+        android:fontFamily="@font/noto_sans_kr_regular"
+        android:hint="@string/signin_hintid"
         android:inputType="textPersonName"
-
+        android:paddingLeft="16dp"
+        android:paddingTop="13dp"
+        android:paddingBottom="13dp"
+        android:textColor="@color/gray1"
+        android:textFontWeight="400"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@id/id"
         app:layout_constraintTop_toBottomOf="@+id/id" />
@@ -62,11 +51,10 @@
         android:id="@+id/pw"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="비밀번호"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        android:textSize="18dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="34dp"
+        android:fontFamily="@font/noto_sans_kr_bold"
+        android:text="@string/pw"
+        android:textColor="@color/gray1"
         app:layout_constraintStart_toStartOf="@+id/et_id"
         app:layout_constraintTop_toBottomOf="@+id/et_id" />
 
@@ -74,10 +62,17 @@
         android:id="@+id/et_pw"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="비밀번호를 입력해주세요"
-        android:inputType="textPassword"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="6dp"
         android:layout_marginEnd="20dp"
+        android:background="@drawable/selector_tv"
+        android:fontFamily="@font/noto_sans_kr_regular"
+        android:hint="@string/signin_hintpw"
+        android:inputType="textPassword"
+        android:paddingStart="16dp"
+        android:paddingTop="13dp"
+        android:paddingBottom="13dp"
+        android:textColor="@color/gray1"
+        android:textFontWeight="400"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/pw"
         app:layout_constraintTop_toBottomOf="@+id/pw" />
@@ -86,25 +81,47 @@
         android:id="@+id/btn_login"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="로그인"
-        android:layout_marginBottom="10dp"
-        android:backgroundTint="#FF3399"
-        app:layout_constraintBottom_toTopOf="@+id/btn_reg"
-        app:layout_constraintEnd_toEndOf="@+id/btn_reg"
-        app:layout_constraintStart_toStartOf="@+id/btn_reg" />
-
-    <Button
-        android:id="@+id/btn_reg"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="회원가입"
-        android:textColor="#808080"
-        android:layout_marginBottom="20dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:backgroundTint="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/btn_rectangle"
+        android:fontFamily="@font/noto_sans_kr_bold"
+        android:text="@string/login"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_reg"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="105dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/noto_sans_kr_regular"
+        android:text="@string/signin_account"
+        android:textColor="@color/gray3"
+        android:textFontWeight="400"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_reg"
+        app:layout_constraintEnd_toStartOf="@+id/btn_reg"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btn_reg" />
+
+    <TextView
+        android:id="@+id/btn_reg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="105dp"
+        android:layout_marginBottom="41dp"
+        android:backgroundTint="@color/white"
+        android:clickable="true"
+        android:fontFamily="@font/noto_sans_kr_bold"
+        android:text="@string/signup"
+        android:textColor="@color/gray3"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
