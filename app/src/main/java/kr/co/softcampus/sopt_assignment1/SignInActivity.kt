@@ -29,7 +29,7 @@ class SignInActivity : AppCompatActivity() {
     private fun LoginButton() {
         binding.btnLogin.setOnClickListener {
             if(checkInputText()){
-                Toast.makeText(this, "내용을 모두 입력해주세요.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, R.string.blank, Toast.LENGTH_SHORT).show()
             }
             else initNetwork()
         }
