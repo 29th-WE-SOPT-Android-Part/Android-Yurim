@@ -28,47 +28,47 @@ class SignInActivity : AppCompatActivity() {
 
     private fun LoginButton() {
         binding.btnLogin.setOnClickListener {
-            if(checkInputText()){
+            if (checkInputText()) {
                 Toast.makeText(this, R.string.blank, Toast.LENGTH_SHORT).show()
-            }
-            else initNetwork()
+            } else initNetwork()
         }
     }
 
-    private fun initNetwork(){
+    private fun initNetwork() {
         val requestSigninData = RequestSigninData(
             id = binding.etId.text.toString(),
             password = binding.etPw.text.toString()
         )
 
-        val call : Call<ResponseSigninData> = ServiceCreator.signinService.postLogin(requestSigninData)
+        val call: Call<ResponseSigninData> =
+            ServiceCreator.signinService.postLogin(requestSigninData)
 
-        call.enqueue(object : Callback<ResponseSigninData>{
+        call.enqueue(object : Callback<ResponseSigninData> {
             override fun onResponse(
                 call: Call<ResponseSigninData>,
                 response: Response<ResponseSigninData>
             ) {
-                if(response.isSuccessful){
+                if (response.isSuccessful) {
                     successLogin(response.body()?.data?.name)
-                }
-                else{
-                    Toast.makeText(this@SignInActivity,R.string.fail_login,Toast.LENGTH_LONG).show()
+                } else {
+                    Toast.makeText(this@SignInActivity, R.string.fail_login, Toast.LENGTH_LONG)
+                        .show()
                 }
             }
 
             override fun onFailure(call: Call<ResponseSigninData>, t: Throwable) {
                 //에러 처리
-                Toast.makeText(this@SignInActivity,"ERROR",Toast.LENGTH_LONG).show()
-                Log.e("NetworkTest","error:$t")
+                Toast.makeText(this@SignInActivity, "ERROR", Toast.LENGTH_LONG).show()
+                Log.e("NetworkTest", "error:$t")
             }
         })
     }
 
-    private fun checkInputText(): Boolean{
+    private fun checkInputText(): Boolean {
         return binding.etId.text.isNullOrBlank() || binding.etPw.text.isNullOrBlank()
     }
 
-    private fun successLogin(name : String?){
+    private fun successLogin(name: String?) {
         val intent_Home = Intent(this, HomeActivity::class.java)
         Toast.makeText(this, name + "님 환영합니다", Toast.LENGTH_SHORT).show()
         startActivity(intent_Home)

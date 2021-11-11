@@ -4,6 +4,6 @@ import com.google.gson.annotations.SerializedName
 
 data class RequestSigninData(
     @SerializedName("email")
-    val id : String,
-    val password : String
+    val id: String,
+    val password: String
 )

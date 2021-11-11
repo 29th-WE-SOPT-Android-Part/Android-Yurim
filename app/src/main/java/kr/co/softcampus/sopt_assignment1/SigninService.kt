@@ -10,6 +10,6 @@ interface SigninService {
     @Headers("Content-Type: application/json")
     @POST("user/login")
     fun postLogin(
-        @Body body : RequestSigninData
-    ) : Call<ResponseSigninData>
+        @Body body: RequestSigninData
+    ): Call<ResponseSigninData>
 }

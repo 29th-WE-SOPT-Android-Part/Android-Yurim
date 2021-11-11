@@ -9,6 +9,6 @@ interface SignupService {
     @Headers("Content-Type: application/json")
     @POST("user/signup")
     fun postSignup(
-        @Body body : RequestSignupData
-    ) : Call<ResponseSignupData>
+        @Body body: RequestSignupData
+    ): Call<ResponseSignupData>
 }
