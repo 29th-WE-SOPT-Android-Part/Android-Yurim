@@ -19,9 +19,8 @@
 - Body값 넣어주기<br/><br/>
 
 > ##### 응답
->
-> ![image-20211110234858004](https://user-images.githubusercontent.com/52950523/141351091-70bfb0c9-7b90-4585-bc85-9c1f23377404.png)<br/>
-> <br/>
+![image-20211110234858004](https://user-images.githubusercontent.com/52950523/141351091-70bfb0c9-7b90-4585-bc85-9c1f23377404.png)<br/>
+<br/>
 
 #### 2. email로 user 찾기
 
@@ -31,14 +30,17 @@
 - GET은 Body값을 갖지 않음!<br/><br/>
 
 > ##### 응답
->
-> ![image-20211110235038975](https://user-images.githubusercontent.com/52950523/141351212-040d3fd6-b300-4387-b75b-4743bb6e45c6.png)<br/>
+![image-20211110235038975](https://user-images.githubusercontent.com/52950523/141351212-040d3fd6-b300-4387-b75b-4743bb6e45c6.png)<br/>
 
 <br/><br/>
 
 #### 3. 로그인 완료
 
-   <br/><br/>
+![image](https://user-images.githubusercontent.com/52950523/141411910-d2f03500-beeb-459c-aef1-cfff800e3e5d.png)<br/>
+![image](https://user-images.githubusercontent.com/52950523/141411947-507a20af-db3b-4136-ad1c-41aaf404c25b.png)<br/><br/>
+> ##### 응답
+![image](https://user-images.githubusercontent.com/52950523/141411965-4e6c2a0d-3298-4ce7-9049-07b04f231b0c.png)
+<br/><br/>
 
    
 
@@ -55,6 +57,7 @@ implementation "com.squareup.retrofit2:converter-gson:2.9.0"
 implementation 'com.google.code.gson:gson:2.8.6'
 ```
 
+- json이란❓: Key-Value 형태로 구성되어진 데이터 타입이며 사람이 읽을 수 있도록 텍스트 타입으로 지원되는 데이터 오브젝트<br/>
 - gson이란❓: Java에서 Json을 파싱하고 생성하기 위해 사용되는 구글에서 개발한 오픈소스<br/>
 
 - retrofit2는 HTTP API를 자바 인터페이스 형태로 사용하는 라이브러리<br/><br/>
