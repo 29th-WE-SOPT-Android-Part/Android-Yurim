@@ -6,12 +6,16 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.ItemTouchHelper
+import androidx.recyclerview.widget.RecyclerView
 import kr.co.softcampus.sopt_assignment1.databinding.FragmentFollowerBinding
 
-class FollowerFragment : Fragment() {
+class FollowerFragment : Fragment(), ItemDragListener {
+
     private var _binding : FragmentFollowerBinding? = null
     private val binding get() = _binding ?: error("Binding이 초기화 되지 않았습니다.")
     private lateinit var followerAdapter : FollowerAdapter
+    private lateinit var itemTouchHelper : ItemTouchHelper
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -22,15 +26,15 @@ class FollowerFragment : Fragment() {
         return binding.root
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding= null
-    }
     private fun initAdapter() {
 
-        followerAdapter = FollowerAdapter()
+        followerAdapter = FollowerAdapter(this)
         binding.rvFollower.adapter = followerAdapter
         binding.rvFollower.addItemDecoration(ItemDecoration(10, Color.rgb(255,51,153)))
+
+        itemTouchHelper = ItemTouchHelper((ItemTouchHelperCallback(followerAdapter)))
+        itemTouchHelper.attachToRecyclerView(binding.rvFollower)
+
         followerAdapter.followerList.addAll(
             listOf(
                 FollowerData(R.drawable.lim,"최유림", "안드로이드"),
@@ -42,5 +46,14 @@ class FollowerFragment : Fragment() {
             )
         )
         followerAdapter.notifyDataSetChanged()
+    }
+
+    override fun onStartDrag(viewHolder: RecyclerView.ViewHolder) {
+
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding= null
     }
 }
