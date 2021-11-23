@@ -3,13 +3,12 @@ package kr.co.softcampus.sopt_assignment1
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import kr.co.softcampus.sopt_assignment1.databinding.FollowerListBinding
 
 class FollowerAdapter :
     RecyclerView.Adapter<FollowerAdapter.FollowerViewHolder>() { //<>안에 Adapter가 데이터를 전달할 ViewHolder 클래스 작성
 
-    val followerList = mutableListOf<FollowerData>()
+    var followerList = mutableListOf<FollowerData>()
 
     /*ViewHolder를 생성하고 ItemLayout의 Binding 객체를 만들어 ViewHolder의 생성자로 넘겨주는 함수*/
     override fun onCreateViewHolder(
@@ -34,12 +33,7 @@ class FollowerAdapter :
     class FollowerViewHolder(private val binding: FollowerListBinding) :
         RecyclerView.ViewHolder(binding.root) { //RecyclerView.ViewHolder 클래스 상속
         fun onBind(data: FollowerData) {
-            binding.tvName.text = data.name
-            binding.tvIntro.text = data.introduction
-            Glide.with(itemView.context)
-                .load(data.url)
-                .circleCrop()
-                .into(binding.ivPhoto)
+            binding.followerlist = data
         }
     }
 }
