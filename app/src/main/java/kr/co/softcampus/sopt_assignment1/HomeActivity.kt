@@ -21,7 +21,8 @@ class HomeActivity : AppCompatActivity() {
             "최유림",
             24,
             "esfp",
-            "안녕하세요 SOPT 29기 \n안드로이드 YB입니다\n잘 부탁드립니다~♥\n\n안녕하세요 SOPT 29기 \n안드로이드 YB입니다\n잘 부탁드립니다~♥\n\n안녕하세요 SOPT 29기 \n안드로이드 YB입니다\n잘 부탁드립니다~♥\n\n안녕하세요 SOPT 29기 \n안드로이드 YB입니다\n잘 부탁드립니다~♥\n\n안녕하세요 SOPT 29기 \n안드로이드 YB입니다\n잘 부탁드립니다~♥"
+            "안녕하세요 SOPT 29기 \n안드로이드 YB입니다\n잘 부탁드립니다~♥\n\n안녕하세요 SOPT 29기 \n안드로이드 YB입니다\n잘 부탁드립니다~♥\n\n안녕하세요 SOPT 29기 \n안드로이드 YB입니다\n잘 부탁드립니다~♥\n\n안녕하세요 SOPT 29기 \n안드로이드 YB입니다\n잘 부탁드립니다~♥\n\n안녕하세요 SOPT 29기 \n안드로이드 YB입니다\n잘 부탁드립니다~♥",
+            R.drawable.lim
         )
 
         binding.introduce = intro

@@ -4,5 +4,6 @@ data class Introduce(
     val name: String,
     val age: Int,
     val mbti: String,
-    val intro: String
+    val intro: String,
+    val img: Int
 )
