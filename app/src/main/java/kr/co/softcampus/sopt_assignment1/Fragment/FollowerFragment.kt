@@ -1,10 +1,12 @@
-package kr.co.softcampus.sopt_assignment1
+package kr.co.softcampus.sopt_assignment1.Fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import kr.co.softcampus.sopt_assignment1.Adapter.FollowerAdapter
+import kr.co.softcampus.sopt_assignment1.Data.FollowerData
 import kr.co.softcampus.sopt_assignment1.databinding.FragmentFollowerBinding
 
 class FollowerFragment : Fragment() {

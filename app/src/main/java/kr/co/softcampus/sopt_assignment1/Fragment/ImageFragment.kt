@@ -1,4 +1,4 @@
-package kr.co.softcampus.sopt_assignment1
+package kr.co.softcampus.sopt_assignment1.Fragment
 
 import android.app.Activity.RESULT_OK
 import android.content.Intent

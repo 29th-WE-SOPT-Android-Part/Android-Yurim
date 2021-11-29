@@ -1,4 +1,4 @@
-package kr.co.softcampus.sopt_assignment1
+package kr.co.softcampus.sopt_assignment1.Activity
 
 import android.app.Activity
 import android.content.Intent
@@ -7,6 +7,10 @@ import android.util.Log
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import kr.co.softcampus.sopt_assignment1.Data.RequestSigninData
+import kr.co.softcampus.sopt_assignment1.Data.ResponseSigninData
+import kr.co.softcampus.sopt_assignment1.R
+import kr.co.softcampus.sopt_assignment1.ServiceCreator
 import kr.co.softcampus.sopt_assignment1.databinding.ActivitySignInBinding
 import retrofit2.Call
 import retrofit2.Callback

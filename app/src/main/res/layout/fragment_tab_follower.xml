@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#DFDFDF"
-    tools:context=".TabFollowerFragment">
+    tools:context=".Fragment.TabFollowerFragment">
 
     <TextView
         android:layout_width="wrap_content"

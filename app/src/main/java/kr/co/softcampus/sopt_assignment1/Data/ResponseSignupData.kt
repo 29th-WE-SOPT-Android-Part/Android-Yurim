@@ -1,8 +1,8 @@
-package kr.co.softcampus.sopt_assignment1
+package kr.co.softcampus.sopt_assignment1.Data
 
-data class ResponseGetUserByEmailData(
+data class ResponseSignupData(
     val status: Int,
-    val sucess: Boolean,
+    val success: Boolean,
     val message: String,
     val data: Data
 ) {

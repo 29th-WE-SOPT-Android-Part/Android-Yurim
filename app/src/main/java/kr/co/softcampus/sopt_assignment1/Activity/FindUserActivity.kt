@@ -1,9 +1,12 @@
-package kr.co.softcampus.sopt_assignment1
+package kr.co.softcampus.sopt_assignment1.Activity
 
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import kr.co.softcampus.sopt_assignment1.Data.ResponseGetUserByEmailData
+import kr.co.softcampus.sopt_assignment1.R
+import kr.co.softcampus.sopt_assignment1.ServiceCreator
 import kr.co.softcampus.sopt_assignment1.databinding.ActivityFindUserBinding
 import retrofit2.Call
 import retrofit2.Callback

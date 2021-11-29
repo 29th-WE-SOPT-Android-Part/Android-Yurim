@@ -1,9 +1,10 @@
-package kr.co.softcampus.sopt_assignment1
+package kr.co.softcampus.sopt_assignment1.Adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import kr.co.softcampus.sopt_assignment1.Data.FollowerData
 import kr.co.softcampus.sopt_assignment1.databinding.FollowerListBinding
 
 class FollowerAdapter :

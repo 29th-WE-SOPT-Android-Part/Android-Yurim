@@ -1,10 +1,12 @@
-package kr.co.softcampus.sopt_assignment1
+package kr.co.softcampus.sopt_assignment1.Fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import kr.co.softcampus.sopt_assignment1.Adapter.RepositoryAdapter
+import kr.co.softcampus.sopt_assignment1.Data.RepositoryData
 import kr.co.softcampus.sopt_assignment1.databinding.FragmentRepositoryBinding
 
 class RepositoryFragment : Fragment() {
