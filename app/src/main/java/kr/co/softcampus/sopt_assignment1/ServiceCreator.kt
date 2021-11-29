@@ -15,4 +15,13 @@ object ServiceCreator {
     val signupService: SignupService = retrofit.create(SignupService::class.java)
     val getUserByEmailService: GetUserByEmailService =
         retrofit.create(GetUserByEmailService::class.java)
+
+    private const val GITHUB_BASE_URL = "https://api.github.com/"
+    private val retrofit2: Retrofit = Retrofit
+        .Builder()
+        .baseUrl(GITHUB_BASE_URL)
+        .addConverterFactory(GsonConverterFactory.create())
+        .build()
+
+    val githubService: GithubService = retrofit2.create(GithubService::class.java)
 }

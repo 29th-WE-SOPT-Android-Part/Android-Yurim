@@ -1,24 +1,36 @@
 package kr.co.softcampus.sopt_assignment1.Fragment
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import kr.co.softcampus.sopt_assignment1.Adapter.FollowerAdapter
 import kr.co.softcampus.sopt_assignment1.Data.FollowerData
+import kr.co.softcampus.sopt_assignment1.Data.ResponseGithubData
+import kr.co.softcampus.sopt_assignment1.Data.ResponseUserInfoData
+import kr.co.softcampus.sopt_assignment1.ServiceCreator
 import kr.co.softcampus.sopt_assignment1.databinding.FragmentFollowerBinding
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class FollowerFragment : Fragment() {
     private var _binding: FragmentFollowerBinding? = null
     private val binding get() = _binding ?: error("Binding이 초기화 되지 않았습니다.")
     private lateinit var followerAdapter: FollowerAdapter
+    private val _followerList = ArrayList<FollowerData>()
+    val followerList: ArrayList<FollowerData>
+        get() = _followerList
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentFollowerBinding.inflate(layoutInflater, container, false)
+        getGithubData()
         initAdapter()
         return binding.root
     }
@@ -29,48 +41,64 @@ class FollowerFragment : Fragment() {
     }
 
     private fun initAdapter() {
-
         followerAdapter = FollowerAdapter()
         binding.rvFollower.adapter = followerAdapter
-        followerAdapter.followerList.addAll(
-            listOf(
-                FollowerData(
-                    "박정훈",
-                    "안드로이드",
-                    "http://wiki.hash.kr/images/thumb/4/45/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C_%EB%A1%9C%EA%B3%A0.png/200px-%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C_%EB%A1%9C%EA%B3%A0.png"
-                ),
-                FollowerData(
-                    "이준호",
-                    "IOS",
-                    "https://www.cctvnews.co.kr/news/photo/202005/202710_202771_3715.png"
-                ),
-                FollowerData(
-                    "김인우",
-                    "기획",
-                    "https://thinkingpower.co.kr/wp-content/uploads/2019/07/%EC%95%84%EC%9D%B4%EB%94%94%EC%96%B4-768x767.jpg"
-                ),
-                FollowerData(
-                    "박민우",
-                    "안드로이드",
-                    "http://wiki.hash.kr/images/thumb/4/45/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C_%EB%A1%9C%EA%B3%A0.png/200px-%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C_%EB%A1%9C%EA%B3%A0.png"
-                ),
-                FollowerData(
-                    "김우영",
-                    "서버",
-                    "https://t1.daumcdn.net/cfile/tistory/99696A495C6BC05E0D"
-                ),
-                FollowerData(
-                    "문다빈",
-                    "안팟장",
-                    "https://image.flaticon.com/icons/png/512/219/219683.png"
-                ),
-                FollowerData(
-                    "한지우",
-                    "디자인",
-                    "https://mblogthumb-phinf.pstatic.net/MjAxOTA4MTFfNTcg/MDAxNTY1NDk5MDk1ODc2.NJJrChMjlZErPGfPPU41NH_U41dXE0928BznJsUIqXsg.bWohysoK1VPrm8nLgG-an7Oeh1VJmDkw4y8COxcUEtMg.PNG.as12345df/%EC%95%84%EC%9D%B4%ED%8C%A8%EB%93%9C+%ED%94%84%EB%A1%9C%ED%81%AC%EB%A6%AC%EC%97%90%EC%9D%B4%ED%8A%B8.png?type=w800"
-                )
-            )
-        )
+
         followerAdapter.notifyDataSetChanged()
+    }
+
+    fun getGithubData() {
+        val call: Call<List<ResponseGithubData>> =
+            ServiceCreator.githubService.getGithubUser("ChoiYuLim")
+
+        call.enqueue(object : Callback<List<ResponseGithubData>> {
+            override fun onResponse(
+                call: Call<List<ResponseGithubData>>,
+                response: Response<List<ResponseGithubData>>
+            ) {
+                if (response.isSuccessful) {
+                    val data = response.body()
+                    if (data != null) {
+                        for (i in data.indices) {
+                            val login = data[i].login
+                            val imgUrl = data[i].avatar_url
+
+                            ServiceCreator.githubService
+                                .getUserInfo(login)
+                                .enqueue(object: Callback<ResponseUserInfoData>{
+                                override fun onResponse(
+                                    call: Call<ResponseUserInfoData>,
+                                    response: Response<ResponseUserInfoData>
+                                ) {
+                                    if(response.isSuccessful){
+                                        val newData = FollowerData(login, imgUrl, response.body()!!.bio)
+                                        _followerList.add(newData)
+                                        Log.d("성공이다", login+ imgUrl+response.body()!!.bio)
+                                    }
+                                    else{
+                                    }
+                                }
+
+                                override fun onFailure(
+                                    call: Call<ResponseUserInfoData>,
+                                    t: Throwable
+                                ) {
+                                    Log.e("Network err", "error:$t")
+                                }
+                            })
+                            
+                        }
+                        followerAdapter.followerList.addAll(_followerList)
+                    }
+                }
+                else{
+                    Toast.makeText(context, "팔로워 리스트를 불러오지 못했습니다.", Toast.LENGTH_SHORT).show()
+                }
+            }
+
+            override fun onFailure(call: Call<List<ResponseGithubData>>, t: Throwable) {
+                Log.e("Network err", "error:$t")
+            }
+        })
     }
 }
