@@ -59,5 +59,6 @@ dependencies {
 
     //OkHttp 사용
     implementation 'com/squareup.okhttp3:okhttp:3.12.1'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.11.0'
 
 }
