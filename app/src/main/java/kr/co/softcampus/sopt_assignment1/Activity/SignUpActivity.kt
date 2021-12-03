@@ -7,6 +7,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import kr.co.softcampus.sopt_assignment1.Data.RequestSignupData
 import kr.co.softcampus.sopt_assignment1.Data.ResponseSignupData
+import kr.co.softcampus.sopt_assignment1.Data.ResponseWrapper
 import kr.co.softcampus.sopt_assignment1.R
 import kr.co.softcampus.sopt_assignment1.ServiceCreator
 import kr.co.softcampus.sopt_assignment1.databinding.ActivitySignUpBinding
@@ -48,13 +49,14 @@ class SignUpActivity : AppCompatActivity() {
             password = binding.etPw.text.toString()
         )
 
-        val call: Call<ResponseSignupData> =
+        val call: Call<ResponseWrapper<ResponseSignupData>> =
             ServiceCreator.signupService.postSignup(requestSignupData)
 
-        call.enqueue(object : Callback<ResponseSignupData> {
+        call.enqueue(object : Callback<ResponseWrapper<ResponseSignupData>> {
+
             override fun onResponse(
-                call: Call<ResponseSignupData>,
-                response: Response<ResponseSignupData>
+                call: Call<ResponseWrapper<ResponseSignupData>>,
+                response: Response<ResponseWrapper<ResponseSignupData>>
             ) {
                 if (response.isSuccessful) {
                     val Intent_SignIn = Intent(this@SignUpActivity, SignInActivity::class.java)
@@ -72,11 +74,12 @@ class SignUpActivity : AppCompatActivity() {
                 }
             }
 
-            override fun onFailure(call: Call<ResponseSignupData>, t: Throwable) {
+            override fun onFailure(call: Call<ResponseWrapper<ResponseSignupData>>, t: Throwable) {
                 //에러 처리
                 Toast.makeText(this@SignUpActivity, "ERROR", Toast.LENGTH_LONG).show()
                 Log.e("NetworkTest", "error:$t")
             }
+
         })
     }
 }

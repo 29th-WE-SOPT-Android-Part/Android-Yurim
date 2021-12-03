@@ -2,7 +2,7 @@ package kr.co.softcampus.sopt_assignment1.Data
 
 data class ResponseGetUserByEmailData(
     val status: Int,
-    val sucess: Boolean,
+    val success: Boolean,
     val message: String,
     val data: Data
 ) {
