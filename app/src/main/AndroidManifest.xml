@@ -13,11 +13,11 @@
         android:theme="@style/Theme.SOPT_Assignment1"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".FindUserActivity"
+            android:name=".Activity.FindUserActivity"
             android:exported="false" />
-        <activity android:name=".HomeActivity" />
-        <activity android:name=".SignUpActivity" />
-        <activity android:name=".SignInActivity">
+        <activity android:name=".Activity.HomeActivity" />
+        <activity android:name=".Activity.SignUpActivity" />
+        <activity android:name=".Activity.SignInActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

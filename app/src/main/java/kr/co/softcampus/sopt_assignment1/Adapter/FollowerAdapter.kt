@@ -1,15 +1,16 @@
-package kr.co.softcampus.sopt_assignment1
+package kr.co.softcampus.sopt_assignment1.Adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import kr.co.softcampus.sopt_assignment1.Data.FollowerData
 import kr.co.softcampus.sopt_assignment1.databinding.FollowerListBinding
 
 class FollowerAdapter :
     RecyclerView.Adapter<FollowerAdapter.FollowerViewHolder>() { //<>안에 Adapter가 데이터를 전달할 ViewHolder 클래스 작성
 
-    val followerList = mutableListOf<FollowerData>()
+    var followerList = mutableListOf<FollowerData>()
 
     /*ViewHolder를 생성하고 ItemLayout의 Binding 객체를 만들어 ViewHolder의 생성자로 넘겨주는 함수*/
     override fun onCreateViewHolder(

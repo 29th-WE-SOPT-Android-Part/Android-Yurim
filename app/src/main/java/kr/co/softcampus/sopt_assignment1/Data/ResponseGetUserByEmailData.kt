@@ -1,6 +1,6 @@
-package kr.co.softcampus.sopt_assignment1
+package kr.co.softcampus.sopt_assignment1.Data
 
-data class ResponseSigninData( //생성자 소괄호
+data class ResponseGetUserByEmailData(
     val status: Int,
     val success: Boolean,
     val message: String,

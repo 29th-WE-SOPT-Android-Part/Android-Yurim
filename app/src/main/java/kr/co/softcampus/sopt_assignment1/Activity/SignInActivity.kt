@@ -1,4 +1,4 @@
-package kr.co.softcampus.sopt_assignment1
+package kr.co.softcampus.sopt_assignment1.Activity
 
 import android.app.Activity
 import android.content.Intent
@@ -7,6 +7,11 @@ import android.util.Log
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import kr.co.softcampus.sopt_assignment1.Data.RequestSigninData
+import kr.co.softcampus.sopt_assignment1.Data.ResponseSigninData
+import kr.co.softcampus.sopt_assignment1.Data.ResponseWrapper
+import kr.co.softcampus.sopt_assignment1.R
+import kr.co.softcampus.sopt_assignment1.ServiceCreator
 import kr.co.softcampus.sopt_assignment1.databinding.ActivitySignInBinding
 import retrofit2.Call
 import retrofit2.Callback
@@ -40,13 +45,13 @@ class SignInActivity : AppCompatActivity() {
             password = binding.etPw.text.toString()
         )
 
-        val call: Call<ResponseSigninData> =
+        val call: Call<ResponseWrapper<ResponseSigninData>> =
             ServiceCreator.signinService.postLogin(requestSigninData)
 
-        call.enqueue(object : Callback<ResponseSigninData> {
+        call.enqueue(object : Callback<ResponseWrapper<ResponseSigninData>> {
             override fun onResponse(
-                call: Call<ResponseSigninData>,
-                response: Response<ResponseSigninData>
+                call: Call<ResponseWrapper<ResponseSigninData>>,
+                response: Response<ResponseWrapper<ResponseSigninData>>
             ) {
                 if (response.isSuccessful) {
                     successLogin(response.body()?.data?.name)
@@ -56,12 +61,14 @@ class SignInActivity : AppCompatActivity() {
                 }
             }
 
-            override fun onFailure(call: Call<ResponseSigninData>, t: Throwable) {
+            override fun onFailure(call: Call<ResponseWrapper<ResponseSigninData>>, t: Throwable) {
                 //에러 처리
                 Toast.makeText(this@SignInActivity, "ERROR", Toast.LENGTH_LONG).show()
                 Log.e("NetworkTest", "error:$t")
+
             }
         })
+
     }
 
     private fun checkInputText(): Boolean {

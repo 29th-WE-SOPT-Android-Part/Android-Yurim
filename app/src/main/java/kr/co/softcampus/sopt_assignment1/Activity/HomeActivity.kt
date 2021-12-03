@@ -1,8 +1,13 @@
-package kr.co.softcampus.sopt_assignment1
+package kr.co.softcampus.sopt_assignment1.Activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager2.widget.ViewPager2
+import kr.co.softcampus.sopt_assignment1.Adapter.HomeViewPagerAdapter
+import kr.co.softcampus.sopt_assignment1.Fragment.HomeFragment
+import kr.co.softcampus.sopt_assignment1.Fragment.ImageFragment
+import kr.co.softcampus.sopt_assignment1.Fragment.ProfileFragment
+import kr.co.softcampus.sopt_assignment1.R
 import kr.co.softcampus.sopt_assignment1.databinding.ActivityHomeBinding
 
 class HomeActivity : AppCompatActivity() {

@@ -1,4 +1,4 @@
-package kr.co.softcampus.sopt_assignment1
+package kr.co.softcampus.sopt_assignment1.Fragment
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
+import kr.co.softcampus.sopt_assignment1.Activity.FindUserActivity
+import kr.co.softcampus.sopt_assignment1.R
 import kr.co.softcampus.sopt_assignment1.databinding.FragmentProfileBinding
 
 class ProfileFragment : Fragment() {
