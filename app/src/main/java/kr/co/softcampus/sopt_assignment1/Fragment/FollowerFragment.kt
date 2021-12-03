@@ -30,8 +30,8 @@ class FollowerFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentFollowerBinding.inflate(layoutInflater, container, false)
-        getGithubData()
         initAdapter()
+        getGithubData()
         return binding.root
     }
 
@@ -44,7 +44,7 @@ class FollowerFragment : Fragment() {
         followerAdapter = FollowerAdapter()
         binding.rvFollower.adapter = followerAdapter
 
-        followerAdapter.notifyDataSetChanged()
+        //followerAdapter.notifyDataSetChanged()
     }
 
     fun getGithubData() {
@@ -59,9 +59,9 @@ class FollowerFragment : Fragment() {
                 if (response.isSuccessful) {
                     val data = response.body()
                     if (data != null) {
-                        for (i in data.indices) {
-                            val login = data[i].login
-                            val imgUrl = data[i].avatar_url
+                        for (i in data) {
+                            val login = i.login
+                            val imgUrl = i.avatar_url
 
                             ServiceCreator.githubService
                                 .getUserInfo(login)
@@ -71,7 +71,7 @@ class FollowerFragment : Fragment() {
                                     response: Response<ResponseUserInfoData>
                                 ) {
                                     if(response.isSuccessful){
-                                        val newData = FollowerData(login, imgUrl, response.body()!!.bio)
+                                        val newData = FollowerData(login, response.body()!!.bio, imgUrl)
                                         _followerList.add(newData)
                                         Log.d("성공이다", login+ imgUrl+response.body()!!.bio)
                                     }
@@ -89,6 +89,7 @@ class FollowerFragment : Fragment() {
                             
                         }
                         followerAdapter.followerList.addAll(_followerList)
+                        followerAdapter.notifyDataSetChanged()
                     }
                 }
                 else{
