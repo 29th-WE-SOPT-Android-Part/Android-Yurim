@@ -13,17 +13,21 @@
         android:theme="@style/Theme.SOPT_Assignment1"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".Activity.FindUserActivity"
-            android:exported="false" />
-        <activity android:name=".Activity.HomeActivity" />
-        <activity android:name=".Activity.SignUpActivity" />
-        <activity android:name=".Activity.SignInActivity">
+            android:name=".Activity.OnBoardingActivity"
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".Activity.FindUserActivity"
+            android:exported="false" />
+        <activity android:name=".Activity.HomeActivity" />
+        <activity android:name=".Activity.SignUpActivity" />
+        <activity android:name=".Activity.SignInActivity"/>
+
     </application>
 
 </manifest>
