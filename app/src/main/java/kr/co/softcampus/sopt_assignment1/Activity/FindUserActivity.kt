@@ -5,6 +5,7 @@ import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import kr.co.softcampus.sopt_assignment1.Data.ResponseGetUserByEmailData
+import kr.co.softcampus.sopt_assignment1.Data.SharedPreferences
 import kr.co.softcampus.sopt_assignment1.R
 import kr.co.softcampus.sopt_assignment1.ServiceCreator
 import kr.co.softcampus.sopt_assignment1.databinding.ActivityFindUserBinding
@@ -20,9 +21,24 @@ class FindUserActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityFindUserBinding.inflate(layoutInflater)
 
+        initcheckbox()
+        checkboxClickEvent()
         SearchButton()
 
         setContentView(binding.root)
+    }
+
+    private fun initcheckbox() {
+        if (SharedPreferences.getAutoLogin(this)) {
+            binding.checkbox.isChecked = false
+        } else binding.checkbox.isChecked = true
+    }
+
+    private fun checkboxClickEvent() {
+        binding.checkbox.setOnClickListener {
+            Toast.makeText(this, "자동 로그인 해제", Toast.LENGTH_SHORT).show()
+            SharedPreferences.removeAutoLogin(this)
+        }
     }
 
     private fun SearchButton() {

@@ -7,7 +7,6 @@
     android:layout_height="match_parent"
     tools:context="Fragment.Onboarding2Fragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
         android:id="@+id/tv_text3"
         android:layout_width="wrap_content"

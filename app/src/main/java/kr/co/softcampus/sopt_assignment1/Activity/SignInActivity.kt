@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import kr.co.softcampus.sopt_assignment1.Data.RequestSigninData
 import kr.co.softcampus.sopt_assignment1.Data.ResponseSigninData
 import kr.co.softcampus.sopt_assignment1.Data.ResponseWrapper
+import kr.co.softcampus.sopt_assignment1.Data.SharedPreferences
 import kr.co.softcampus.sopt_assignment1.R
 import kr.co.softcampus.sopt_assignment1.ServiceCreator
 import kr.co.softcampus.sopt_assignment1.databinding.ActivitySignInBinding
@@ -25,10 +26,27 @@ class SignInActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivitySignInBinding.inflate(layoutInflater)
 
+        initClickEvent()
+        isAutoLogin()
         LoginButton()
         RegisterButton()
 
         setContentView(binding.root)
+    }
+
+    private fun initClickEvent() {
+        binding.ibCheck.setOnClickListener {
+            binding.ibCheck.isSelected = !binding.ibCheck.isSelected
+            SharedPreferences.setAutoLogin(this, binding.ibCheck.isSelected)
+        }
+    }
+
+    private fun isAutoLogin(){
+        if(SharedPreferences.getAutoLogin(this)){
+            Toast.makeText(this@SignInActivity, "자동로그인 되었습니다.", Toast.LENGTH_SHORT).show()
+            startActivity(Intent(this@SignInActivity, HomeActivity::class.java))
+            finish()
+        }
     }
 
     private fun LoginButton() {
