@@ -13,7 +13,7 @@
         android:theme="@style/Theme.SOPT_Assignment1"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".Activity.OnBoardingActivity"
+            android:name=".ui.activity.OnBoardingActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,11 +22,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Activity.FindUserActivity"
+            android:name=".ui.activity.FindUserActivity"
             android:exported="false" />
-        <activity android:name=".Activity.HomeActivity" />
-        <activity android:name=".Activity.SignUpActivity" />
-        <activity android:name=".Activity.SignInActivity"/>
+        <activity android:name=".ui.activity.HomeActivity" />
+        <activity android:name=".ui.activity.SignUpActivity" />
+        <activity android:name=".ui.activity.SignInActivity"/>
 
     </application>
 

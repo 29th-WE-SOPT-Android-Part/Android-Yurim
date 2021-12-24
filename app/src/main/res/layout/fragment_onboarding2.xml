@@ -5,7 +5,7 @@
     android:id="@+id/frameLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="Fragment.Onboarding2Fragment">
+    tools:context=".ui.fragment.Onboarding2Fragment">
 
     <TextView
         android:id="@+id/tv_text3"
