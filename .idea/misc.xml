@@ -11,16 +11,23 @@
         <entry key="..\:/YULIM/Android-Yurim/app/src/main/res/drawable/ic_checkbox_off.xml" value="0.29739583333333336" />
         <entry key="..\:/YULIM/Android-Yurim/app/src/main/res/drawable/ic_img_github.xml" value="0.38229166666666664" />
         <entry key="..\:/YULIM/Android-Yurim/app/src/main/res/drawable/sd_rectangle.xml" value="0.275" />
+        <entry key="..\:/YULIM/Android-Yurim/app/src/main/res/drawable/selector_check.xml" value="0.35462962962962963" />
         <entry key="..\:/YULIM/Android-Yurim/app/src/main/res/drawable/selector_checkbox.xml" value="0.3203125" />
         <entry key="..\:/YULIM/Android-Yurim/app/src/main/res/drawable/selector_list_btn.xml" value="0.1" />
         <entry key="..\:/YULIM/Android-Yurim/app/src/main/res/drawable/selector_tv.xml" value="0.10185185185185185" />
         <entry key="..\:/YULIM/Android-Yurim/app/src/main/res/drawable/tv_rectangle.xml" value="0.287962962962963" />
         <entry key="..\:/YULIM/Android-Yurim/app/src/main/res/drawable/tv_rectangle_pink.xml" value="0.18518518518518517" />
+        <entry key="..\:/YULIM/Android-Yurim/app/src/main/res/layout/activity_find_user.xml" value="0.5" />
         <entry key="..\:/YULIM/Android-Yurim/app/src/main/res/layout/activity_home.xml" value="0.25" />
-        <entry key="..\:/YULIM/Android-Yurim/app/src/main/res/layout/activity_sign_in.xml" value="0.25" />
+        <entry key="..\:/YULIM/Android-Yurim/app/src/main/res/layout/activity_on_boarding.xml" value="0.33" />
+        <entry key="..\:/YULIM/Android-Yurim/app/src/main/res/layout/activity_sign_in.xml" value="0.33" />
         <entry key="..\:/YULIM/Android-Yurim/app/src/main/res/layout/activity_sign_up.xml" value="0.33" />
         <entry key="..\:/YULIM/Android-Yurim/app/src/main/res/layout/follower_list.xml" value="0.36614583333333334" />
-        <entry key="..\:/YULIM/Android-Yurim/app/src/main/res/layout/fragment_follower.xml" value="0.25" />
+        <entry key="..\:/YULIM/Android-Yurim/app/src/main/res/layout/fragment_follower.xml" value="0.1" />
+        <entry key="..\:/YULIM/Android-Yurim/app/src/main/res/layout/fragment_home.xml" value="0.36614583333333334" />
+        <entry key="..\:/YULIM/Android-Yurim/app/src/main/res/layout/fragment_onboarding1.xml" value="0.33" />
+        <entry key="..\:/YULIM/Android-Yurim/app/src/main/res/layout/fragment_onboarding2.xml" value="0.36614583333333334" />
+        <entry key="..\:/YULIM/Android-Yurim/app/src/main/res/layout/fragment_onboarding3.xml" value="0.3515625" />
         <entry key="..\:/YULIM/Android-Yurim/app/src/main/res/layout/fragment_profile.xml" value="0.33" />
         <entry key="..\:/YULIM/Android-Yurim/app/src/main/res/layout/fragment_repository.xml" value="0.17314814814814813" />
         <entry key="..\:/YULIM/Android-Yurim/app/src/main/res/layout/repository_list.xml" value="0.25" />
